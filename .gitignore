@@ -1,0 +1,166 @@
+# Directories #
+ 
+# OS Files #
+.DS_Store
+.svn
+  
+## LaTeX/Pdflatex Auxiliary Files:
+**/*.aux
+**/*.lof
+**/*.log
+**/*.lot
+**/*.fls
+**/*.out
+**/*.toc
+
+## Intermediate Documents:
+**/*.dvi
+*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+# *.pdf
+
+## Bibliography Auxiliary Files (bibtex/biblatex/biber):
+**/*.bbl
+**/*.bcf
+**/*.blg
+**/*-blx.aux
+**/*-blx.bib
+**/*.brf
+**/*.run.xml
+
+## Build Tool Auxiliary Files:
+**/*.fdb_latexmk
+**/*.synctex
+**/*.synctex.gz
+**/*.synctex.gz(busy)
+**/*.pdfsync
+
+## Auxiliary and Intermediate Files from Other Packages:
+
+
+# Algorithms
+**/*.alg
+**/*.loa
+
+# Achemso
+**/acs-*.bib
+
+# Amsthm
+**/*.thm
+
+# Beamer
+**/*.out
+**/*.nav
+**/*.snm
+**/*.vrb
+
+#(e)ledmac/(e)ledpar
+**/*.end
+**/*.[1-9]
+**/*.[1-9][0-9]
+**/*.[1-9][0-9][0-9]
+**/*.[1-9]R
+**/*.[1-9][0-9]R
+**/*.[1-9][0-9][0-9]R
+**/*.eledsec[1-9]
+**/*.eledsec[1-9]R
+**/*.eledsec[1-9][0-9]
+**/*.eledsec[1-9][0-9]R
+**/*.eledsec[1-9][0-9][0-9]
+**/*.eledsec[1-9][0-9][0-9]R
+
+# Glossaries
+**/*.acn
+**/*.acr
+**/*.glg
+**/*.glo
+**/*.gls
+
+# gnuplottex
+**/*-gnuplottex-*
+
+# Hyperref
+**/*.brf
+
+# Knitr
+**/*-concordance.tex
+**/*.tikz
+**/*-tikzDictionary
+
+# Listings
+**/*.lol
+
+# Makeidx
+**/*.idx
+**/*.ilg
+**/*.ind
+**/*.ist
+
+# Minitoc
+**/*.maf
+**/*.mtc
+**/*.mtc[0-9]
+**/*.mtc[1-9][0-9]
+
+# Minted
+**/_minted*
+**/*.pyg
+
+# Morewrites
+**/*.mw
+
+# Mylatexformat
+**/*.fmt
+
+# Nomencl
+**/*.nlo
+
+# Sagetex
+**/*.sagetex.sage
+**/*.sagetex.py
+**/*.sagetex.scmd
+
+# Sympy
+**/*.sout
+**/*.sympy
+**/sympy-plots-for-*.tex
+
+# TikZ & PGF
+**/*.dpth
+**/*.md5
+**/*.auxlock
+
+# Todonotes
+**/*.tdo
+
+# Xindy
+**/*.xdy
+
+# WinEdt
+**/*.bak
+**/*.sav
+
+#Latexmk
+**/*.fdb_latexmk
+
+# SyncTeX
+**/.synctex.gz
+
+# Log created by Adobe Reader
+C:\\nppdf32Log\\debuglog.txt
+
+# Sublime Text Project Files (usually contain absolute paths)
+**/*.sublime-project
+**/*.sublime-workspace
+
+# Thumbnails
+._*
+ 
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes 
+
+**/*.swp
+**/*.idea
