@@ -17,14 +17,32 @@
 %% http://www.ieee.org/
 
 \documentclass[conference]{IEEEtran}
-% Add the compsoc option for Computer Society conferences.
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[conference]{../sty/IEEEtran}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[protrusion=true,expansion=true]{microtype}              % Better 
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{setspace}
+%\usepackage{mdwlist}
+\usepackage{comment}
+\usepackage{color}                       % To highlight changes by author
+\usepackage{xspace}
+\usepackage{dcolumn} % used to correctly align numbers in tables
+\usepackage[noorphans,font=itshape]{quoting}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.0}
 
 
-
+%This is used with dcolumn.sty. Defines the "." to be the line up character.
+\newcolumntype{.}{D{.}{.}{2}}
+\newcolumntype{f}{D{.}{.}{2}}
+\newcolumntype{d}{D{.}{.}{0}}
+%% Example: \begin{tabular}{|l|.|.|.|.|.|.|.|.||.|.|}
 
 
 % Some very useful LaTeX packages include:
@@ -291,9 +309,12 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{\IEEEauthorblockN{Anthony Escalona}
-\IEEEauthorblockA{Seidenberg School of CSIS\\
-New York, Ny 10038\\
-Email: ae50483p@pace.edu}}
+\IEEEauthorblockA{
+	Seidenberg School of CSIS \\
+	New York, Ny 10038 \\
+	Email: ae50483p@pace.edu
+	}
+}
 
 
 
@@ -306,10 +327,17 @@ Email: ae50483p@pace.edu}}
 Roadway traffic safety is a significant concern for transportation governing agencies as well as ordinary citizens.  To provide advice for safe driving, careful analysis of road traffic information is important to identify variables closely related to fatal accidents.  In this paper, I apply statistical analysis and data mining algorithms on the NYC Open Data portal dataset as an attempt to address these problems. The relationship between fatal rate and other attributes, including collision manner, weather, surface condition, light condition, and noise complaints, were investigated.
 \end{abstract}
 
-
 \section{Introduction}
-\subsection{Background}
+\label{sec:introduction}
 
+It is estimated that around 4,000 New Yorkers are seriously injured in New York and more than 250 people are killed in traffic accidents every year. The automobile is the leading cause of injury-related death for children under 14 years of age and the second leading cause for seniors. On average, every two hours, vehicles severely injure or kill a New Yorker. The cost of these deaths and injuries impacts the city's social and economic growth greatly.  New York City should no longer consider traffic crashes as mere "accidents," but as preventable incidents that can be addressed systematically. No degree of fatality is unavoidable or appropriate on the streets of the city. New York City's Vision Zero Action Plan is the foundation to reduce traffic deaths and injuries. City of New York will use every available tool to enhance the safety of our streets. With this action plan, it is making a bold new commitment to improving street safety in every neighborhood and district – with increased enforcement of dangerous moving violations such as speed and failure to yield to pedestrians, new street designs and configurations to improve safety, widespread public access and communications, and a comprehensive legislative agenda to increase penalties. 
+
+Data mining is a major step in knowledge discovery.  It is the process of extraction of non-trivial, valid and potentially useful information from huge databases. Some of the important data mining techniques are classification, association rule mining, segmentation, and clustering. 
+
+Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance  safety.    
+
+\section{Literature Review}
+ddddd
 
 \subsection{Ojbectives}
 
