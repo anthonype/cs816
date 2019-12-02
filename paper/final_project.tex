@@ -334,7 +334,7 @@ It is estimated that around 4,000 New Yorkers are seriously injured in New York 
 
 Data mining is a major step in knowledge discovery.  It is the process of extraction of non-trivial, valid and potentially useful information from huge databases. Some of the important data mining techniques are classification, association rule mining, segmentation, and clustering. 
 
-Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance  safety.   
+Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance safety.   
 
 The paper is as follows. Section II addresses motivation. Section III addresses related work. Section IV presents data analysis and evaluation lessons learned. Section V concludes and outlines future work. 
 
@@ -362,7 +362,7 @@ NYC’s Vision Zero Action Plan was launched in 2014, detailing 63 different pro
 	\end{enumerate}
 \end{enumerate}
 
-More vigorous enforcement of dangerous driving behavior by the NYPD and the TLC may help to reduce traffic fatalities and serious injuries. In addition to greater enforcement, efforts are being made to upgrade equipment and technology for speed detection, increase the number of staff on the highway unit, and expand the breadth of information and data captured to preserve crash details better.
+More vigorous enforcement of dangerous driving behavior by the NYPD and the TLC may help to reduce traffic fatalities and serious injuries. In addition to greater enforcement, efforts are being made to upgrade equipment and technology for speed detection, increase the number of staff on the highway unit, and expand the breadth of information and data captured to preserve crash details better. Finally, the purpose of the data analysis is to derive useful data from the data source and to further use it for visualization by using statistical models.     
 \section{Literature Review}
 A number of studies have been conducted to determine the factors leading to serious road accidents and to reduce the number and severity of injuries by removing or regulating these factors. As the traffic accident is large and heterogeneous, most scientists adopted data mining methods to carry out their studies.
 
@@ -374,8 +374,14 @@ The purpose of paper \cite{SingletonFactors} was to employ logistic regression m
 
 
 \section{Data Analysis and Evaluation}
-to do
-
+\subsection{Background}
+The following information should provide enough background for the reader unfamiliar with Logistic Regression to understand the points made in this paper. Readers already familiar with Logistic Regression can skip to the next section. It is a statistical method used to evaluate a dataset in which one or more independent variables calculate an outcome. The result is measured by a dichotomous variable in which there are only two possible outcomes. It uses a formula, like linear regression, as the representation. However, the outcome variable is categorical like two-valued outcomes like true/false, pass/fail, or yes/no. To predict value y, input values x are combined linearly using weights or coefficient values as beta. A key difference from linear regression is that the computation output value is a binary number (0 or 1) instead of a numerical value.  Below is an example logistic regression equation:
+ 
+y = e\^ (b0 + b1*x) / (1 + e\^(b0 + b1*x))
+\newline 
+\newline
+Where y is the predicted output, b0 is the bias or intercept term, and b1 is the coefficient for the single input value x. Each column in the input data has an associated b coefficient, a constant real value, that must be learned from data.
+%https://machinelearningmastery.com/logistic-regression-for-machine-learning/
 
 \section{Conclusion and Future Work}
 The conclusion goes here.
