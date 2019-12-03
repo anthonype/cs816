@@ -35,7 +35,7 @@
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{1em}
-\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{1.2}
 
 
 %This is used with dcolumn.sty. Defines the "." to be the line up character.
@@ -324,7 +324,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Roadway traffic safety is a significant concern for transportation governing agencies as well as ordinary citizens.  To provide advice for safe driving, careful analysis of road traffic information is important to identify variables closely related to fatal accidents.  In this paper, I apply statistical analysis and data mining algorithms on the NYC Open Data portal dataset as an attempt to address these problems. The relationship between fatal rate and other attributes, including collision manner, weather, surface condition, light condition, and noise complaints, were investigated.
+Roadway traffic safety is a significant concern for transportation governing agencies as well as ordinary citizens.  To provide advice for safe driving, careful analysis of road traffic information is important to identify variables closely related to fatal accidents.  In this paper, I apply statistical analysis and data mining algorithms on the NYC Open Data portal dataset as an attempt to address these problems. The relationship between fatal rate and other attributes, including collision manner, weather, surface condition, and light condition, were investigated.
 \end{abstract}
 
 \section{Introduction}
@@ -334,7 +334,7 @@ It is estimated that around 4,000 New Yorkers are seriously injured in New York 
 
 Data mining is a major step in knowledge discovery.  It is the process of extraction of non-trivial, valid and potentially useful information from huge databases. Some of the important data mining techniques are classification, association rule mining, segmentation, and clustering. 
 
-Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance safety.   
+Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance safety.  More interestingly, does climate lead to motor vehicle collisions? 
 
 The paper is as follows. Section II addresses motivation. Section III addresses related work. Section IV presents data analysis and evaluation lessons learned. Section V concludes and outlines future work. 
 
@@ -383,6 +383,44 @@ y = e\^ (b0 + b1*x) / (1 + e\^(b0 + b1*x))
 Where y is the predicted output, b0 is the bias or intercept term, and b1 is the coefficient for the single input value x. Each column in the input data has an associated b coefficient, a constant real value, that must be learned from data.
 %https://machinelearningmastery.com/logistic-regression-for-machine-learning/
 
+\subsection{Methodology}
+%https://www.reddit.com/r/learnpython/comments/41s9q5/classifying_latitude_and_longitude_into_suburbs/
+To visualize data, I used the Python programming language.  All necessary libraries loaded, and the script required the following libraries: 1) google.cloud to access BigQuery database, 2) pandas for data frame management, 3) Matplot for visuals, and 4) Numpy to perform scientific computing.  For making requests, Google authentication is mandatory. The python code must set the google\_application\_credentials environment variable. Replace [PATH] with the JSON file path that contains the service account key and the filename of [FILE NAME]. The attribute is for the current shell session only.
+
+The collision data are made available through the NYC Open Data initiative and can also be searched through the BigQuery Community Datasets offered by Google. For comparison with collision data, historical weather data from NOAA weather data were used.  Google BigQuery makes both NOAA weather data and NYPD traffic collisions available publicly. The first phase was the compilation of daily NYC weather data using years from 2012 to 2019 and limit the return query to the New York City Area. 
+\begin{figure}[bth]
+	\centering
+	\scalebox{1}{\includegraphics{../figures/mvtable.jpg}}
+	\caption{NYC Motor Vehicle Collisions Crash Table}
+	\label{fig:mvtable}
+\end{figure}
+\begin{figure}[bth]
+	\centering
+	\scalebox{1}{\includegraphics{../figures/crashPlot.jpg}}
+	\caption{Contributing Factors}
+	\label{fig:crashPlot}
+\end{figure}
+The first table (fig \ref{fig:mvtable}) of data contains the number of motor vehicle collisions reported per year, month, day, and day of the week (dow). This ranges from 2012 to 2019 and has nearly 30 forms of explanations along with the associated counts of the incidents.  As a crash data baseline, figure \ref{fig:crashPlot} plots the top contributing factors for collisions. According to the data, the leading cause of crashes is distraction. 
+\newline \newline
+Next, the second table of data contains weather data reported by element, year, month, day, dow, and location name (fig \ref{fig:noaatable}).
+\begin{figure}[bth]
+	\centering
+	\scalebox{1}{\includegraphics{../figures/noaatable.jpg}}
+	\caption{NOAA Weather Table}
+	\label{fig:noaatable}
+\end{figure}
+\newline 
+The correlation matrix was used to estimate the linear historical relationship between the returns of the weather variables. IsWeekend (Sat, Sun) feature was added instead of dow. The built-in .corr() method on a pandas DataFrame calculated the correlation matrix. Correlation ranges from -1 to 1. The matrix shows correlation coefficients between weather, x-axis, and contributing factor. Each cell in the table shows the correlation between the two variables (fig \ref{fig:cormap}). 
+
+\begin{figure}[bth]
+	\centering
+	\scalebox{1}{\includegraphics{../figures/cormap.jpg}}
+	\caption{Correlation Matrix}
+	\label{fig:cormap}
+\end{figure}
+
+\subsection{Observations}
+Based on observations, There are some interesting patterns to see. Alcohol accidents are correlated with the weekend. Illness, physical disability, and road rage seem to occur regardless of weather patterns, maybe slightly influenced by temperature. Driver distraction, passenger distraction, and inexperience are correlated with higher temperatures. The other type of road traffic accidents was drop out of analysis due to the low number of occurrences. Visualization and data analysis of road traffic. 
 \section{Conclusion and Future Work}
 The conclusion goes here.
  
