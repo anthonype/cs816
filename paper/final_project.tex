@@ -420,7 +420,7 @@ Next, the second table of data contains weather data reported by element, year, 
 
 The third table combines weather and collision data table as one. Using Pandas, groupby operation is performed on the date, day, year, month, and dow to aggregate the weather data. Additionally, new attributes are created from the element column. For the collision data, the top 20 incident reasons are filtered since anything less is insignificant. Pandas pivotable functionality is used to group the data according to reasons performing a sum aggregation on incidents. The data is indexed by day, year, month, and dow. Any non-number inputs are converted to integer value 0. Finally, a merge of weather and collision data is performed thus creating a new data table. 
  
-A correlation matrix is used to visually estimate the linear historical relationship between the returns of the weather variables using the merged data. IsWeekend (Sat, Sun) feature was added instead of dow. The built-in .corr() method on the pandas DataFrame calculated the correlation matrix. Correlation ranges from -1 to 1. The matrix shows correlation coefficients between weather, x-axis, and contributing factors. Each cell in the table shows the correlation between the two variables (Figure \ref{fig:cormap}).  The represented data in a heatmap form is using the seaborn Python library, which is based on Matplotlib.
+A correlation matrix is used to visually estimate the linear historical relationship between the returns of the weather variables using the merged data. IsWeekend (Sat, Sun) feature was added instead of dow. The built-in .corr() method on the pandas DataFrame calculated the correlation matrix. Correlation ranges from -1 to 1. The matrix shows correlation coefficients between weather, x-axis, and contributing factors. Each cell in the table shows the correlation between the two variables (Figure \ref{fig:cormap}).  The represented data in a clustermap form cosine distance based on library from Matplotlib.
 
 \begin{figure}[bth]
 	\centering
@@ -428,6 +428,19 @@ A correlation matrix is used to visually estimate the linear historical relation
 	\caption{Correlation Matrix}
 	\label{fig:cormap}
 \end{figure}
+
+
+Next we want to measure the effect on the various types of accidents that each parameter has. We iterate through the types of incidents and developed versions of linear regression models with ordinary least squares. For each variable (isWeekend, PRCP, SNWD, TMAX) P-values and coefficient were extracted and plotted as separate graphs. Green bars show a p-value $\geq$ 0.05 (Figure \ref{fig:ols}).   
+
+
+\begin{figure}[bth]
+	\centering
+	\scalebox{.5}{\includegraphics{../figures/ols.png}}
+	\caption{Regression}
+	\label{fig:ols}
+\end{figure}
+
+
 
 \subsection{Observations}
 Based on observations, There are some interesting patterns to see. Alcohol accidents are correlated with the weekend. Illness, physical disability, and road rage seem to occur regardless of weather patterns, maybe slightly influenced by temperature. Driver distraction, passenger distraction, and inexperience are correlated with higher temperatures. The other type of road traffic accidents was drop out of analysis due to the low number of occurrences. Visualization and data analysis of road traffic. 
