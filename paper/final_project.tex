@@ -35,8 +35,8 @@
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{1em}
-\renewcommand{\baselinestretch}{1.2}
-
+\renewcommand{\baselinestretch}{1}
+\onehalfspacing
 
 %This is used with dcolumn.sty. Defines the "." to be the line up character.
 \newcolumntype{.}{D{.}{.}{2}}
@@ -329,7 +329,6 @@ Roadway traffic safety is a significant concern for transportation governing age
 
 \section{Introduction}
 \label{sec:introduction}
-
 It is estimated that around 4,000 New Yorkers are seriously injured in New York and more than 250 people are killed in traffic accidents every year. The automobile is the leading cause of injury-related death for children under 14 years of age and the second leading cause for seniors. On average, every two hours, vehicles severely injure or kill a New Yorker. The cost of these deaths and injuries impacts the city's social and economic growth greatly.  New York City should no longer consider traffic crashes as mere "accidents," but as preventable incidents that can be addressed systematically. No degree of fatality is unavoidable or appropriate on the streets of the city. New York City's Vision Zero Action Plan\cite{VisionZero} is the foundation to reduce traffic deaths and injuries. City of New York will use every available tool to enhance the safety of our streets. With this action plan, it is making a bold new commitment to improving street safety in every neighborhood and district – with increased enforcement of dangerous moving violations such as speed and failure to yield to pedestrians, new street designs and configurations to improve safety, widespread public access and communications, and a comprehensive legislative agenda to increase penalties. 
 
 Data mining is a major step in knowledge discovery.  It is the process of extraction of non-trivial, valid and potentially useful information from huge databases. Some of the important data mining techniques are classification, association rule mining, segmentation, and clustering. 
@@ -337,7 +336,9 @@ Data mining is a major step in knowledge discovery.  It is the process of extrac
 Predicting where and when road incidents will occur is complicated. It is possible to analyze traffic injury statistics and identify a correlation between variables based on historical traffic event data. On the other hand, visualization of data from traffic accidents provides detailed insights into how it changes over time. This paper focuses on practical issues related to the project to prevent road accidents. Analysis and visualization of data help observe the occurrence of traffic accidents and take appropriate action to enhance safety.  More interestingly, does climate lead to motor vehicle collisions? 
 
 The paper is as follows. Section II addresses motivation. Section III addresses related work. Section IV presents data analysis and evaluation lessons learned. Section V concludes and outlines future work. 
-
+%
+%
+%
 \section{Motivation}
 NYC’s Vision Zero Action Plan was launched in 2014, detailing 63 different programs that are implemented by the Mayor's Office and several City Agencies to minimize mortality and serious injury. The Vision Zero Task Force has since launched 143 new initiatives for a total of 206 initiatives (40 new initiatives were implemented in 2015, 22 were added in 2016, 26 in 2017, 27 in 2018 and 28 in 2019).  City Agencies separate these programs and continue to make progress on their following measures \cite{VisionZeroInitiative}:     
 
@@ -363,6 +364,9 @@ NYC’s Vision Zero Action Plan was launched in 2014, detailing 63 different pro
 \end{enumerate}
 
 More vigorous enforcement of dangerous driving behavior by the NYPD and the TLC may help to reduce traffic fatalities and serious injuries. In addition to greater enforcement, efforts are being made to upgrade equipment and technology for speed detection, increase the number of staff on the highway unit, and expand the breadth of information and data captured to preserve crash details better. Finally, the purpose of the data analysis is to derive useful data from the data source and to further use it for visualization by using statistical models.     
+%
+%
+%
 \section{Literature Review}
 A number of studies have been conducted to determine the factors leading to serious road accidents and to reduce the number and severity of injuries by removing or regulating these factors. As the traffic accident is large and heterogeneous, most scientists adopted data mining methods to carry out their studies.
 
@@ -382,12 +386,16 @@ y = e\^ (b0 + b1*x) / (1 + e\^(b0 + b1*x))
 \newline
 Where y is the predicted output, b0 is the bias or intercept term, and b1 is the coefficient for the single input value x. Each column in the input data has an associated b coefficient, a constant real value, that must be learned from data.
 %https://machinelearningmastery.com/logistic-regression-for-machine-learning/
-
+%
+%
+%
 \subsection{Methodology}
 %https://www.reddit.com/r/learnpython/comments/41s9q5/classifying_latitude_and_longitude_into_suburbs/
 To visualize data, I used the Python programming language.  All necessary libraries loaded, and the script required the following libraries: 1) google.cloud to access BigQuery database, 2) pandas for data frame management, 3) Matplot for visuals, and 4) Numpy to perform scientific computing.  For making requests, Google authentication is mandatory. The python code must set the google\_application\_credentials environment variable. Replace [PATH] with the JSON file path that contains the service account key and the filename of [FILE NAME]. The attribute is for the current shell session only.
 
-The collision data are made available through the NYC Open Data initiative and can also be searched through the BigQuery Community Datasets offered by Google. For comparison with collision data, historical weather data from NOAA weather data were used.  Google BigQuery makes both NOAA weather data and NYPD traffic collisions available publicly. The first phase was the compilation of daily NYC weather data using years from 2012 to 2019 and limit the return query to the New York City Area. 
+A collision data are made available through the NYC Open Data initiative and can also be searched through the BigQuery Community Datasets offered by Google. For comparison with collision data, historical weather data from NOAA weather data were used.  Google BigQuery makes both NOAA weather data and NYPD traffic collisions available publicly. 
+
+The first table, is a compilation of daily collision data using years from 2012 to 2019 and limit the return query to the New York City Area. 
 \begin{figure}[bth]
 	\centering
 	\scalebox{1}{\includegraphics{../figures/mvtable.jpg}}
@@ -400,17 +408,19 @@ The collision data are made available through the NYC Open Data initiative and c
 	\caption{Contributing Factors}
 	\label{fig:crashPlot}
 \end{figure}
-The first table (fig \ref{fig:mvtable}) of data contains the number of motor vehicle collisions reported per year, month, day, and day of the week (dow). This ranges from 2012 to 2019 and has nearly 30 forms of explanations along with the associated counts of the incidents.  As a crash data baseline, figure \ref{fig:crashPlot} plots the top contributing factors for collisions. According to the data, the leading cause of crashes is distraction. 
-\newline \newline
-Next, the second table of data contains weather data reported by element, year, month, day, dow, and location name (fig \ref{fig:noaatable}).
+It (Figure \ref{fig:mvtable}) contains the number of motor vehicle collisions reported per year, month, day, and day of the week (dow). This ranges from 2012 to 2019 and has nearly 30 forms of explanations along with the associated counts of the incidents.  As a crash data baseline, figure \ref{fig:crashPlot} plots the top contributing factors for collisions grouped by reason and using incident as its sum aggregate. According to the data, the leading cause of crashes is distraction followed by failure to yield right of way. 
+
+Next, the second table of data contains weather data reported by element, year, month, day, dow, and location name (Figure \ref{fig:noaatable}). The NOAA weather dataset includes over 40 meteorological elements\cite{NoaaRef}, including temperature daily maximum/minimum, the temperature at observation time, precipitation, snowfall, snow depth, evaporation, wind movement, wind maximums, soil temperature, cloudiness, and etc. In this paper, we limit the number of input variables to four elements: 1) TMIN - Minimum temperature, 2) TMAX - Maximum temperature, 4) PRCP – Precipitation and 5) SNWD - Snow depth. The final construction of the weather data required unions of bigquery-public-data.ghcn\_d.ghcnd\_[year] tables from 2012 to 2019 and finally join the lookup table called, bigquery-public-data.ghcn\_d.ghcnd\_stations to map the data to New York City.  
 \begin{figure}[bth]
 	\centering
 	\scalebox{1}{\includegraphics{../figures/noaatable.jpg}}
 	\caption{NOAA Weather Table}
 	\label{fig:noaatable}
 \end{figure}
-\newline 
-The correlation matrix was used to estimate the linear historical relationship between the returns of the weather variables. IsWeekend (Sat, Sun) feature was added instead of dow. The built-in .corr() method on a pandas DataFrame calculated the correlation matrix. Correlation ranges from -1 to 1. The matrix shows correlation coefficients between weather, x-axis, and contributing factor. Each cell in the table shows the correlation between the two variables (fig \ref{fig:cormap}). 
+
+The third table combines weather and collision data table as one. Using Pandas, groupby operation is performed on the date, day, year, month, and dow to aggregate the weather data. Additionally, new attributes are created from the element column. For the collision data, the top 20 incident reasons are filtered since anything less is insignificant. Pandas pivotable functionality is used to group the data according to reasons performing a sum aggregation on incidents. The data is indexed by day, year, month, and dow. Any non-number inputs are converted to integer value 0. Finally, a merge of weather and collision data is performed thus creating a new data table. 
+ 
+A correlation matrix is used to visually estimate the linear historical relationship between the returns of the weather variables using the merged data. IsWeekend (Sat, Sun) feature was added instead of dow. The built-in .corr() method on the pandas DataFrame calculated the correlation matrix. Correlation ranges from -1 to 1. The matrix shows correlation coefficients between weather, x-axis, and contributing factors. Each cell in the table shows the correlation between the two variables (Figure \ref{fig:cormap}).  The represented data in a heatmap form is using the seaborn Python library, which is based on Matplotlib.
 
 \begin{figure}[bth]
 	\centering
@@ -423,7 +433,7 @@ The correlation matrix was used to estimate the linear historical relationship b
 Based on observations, There are some interesting patterns to see. Alcohol accidents are correlated with the weekend. Illness, physical disability, and road rage seem to occur regardless of weather patterns, maybe slightly influenced by temperature. Driver distraction, passenger distraction, and inexperience are correlated with higher temperatures. The other type of road traffic accidents was drop out of analysis due to the low number of occurrences. Visualization and data analysis of road traffic. 
 \section{Conclusion and Future Work}
 The conclusion goes here.
- 
+
 
 
 
