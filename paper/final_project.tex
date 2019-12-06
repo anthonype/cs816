@@ -324,9 +324,8 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Roadway traffic safety is a significant concern for transportation governing agencies as well as ordinary citizens.  To provide advice for safe driving, careful analysis of road traffic information is important to identify variables closely related to fatal accidents.  In this paper, I apply statistical analysis and data mining algorithms on the NYC Open Data portal dataset as an attempt to address these problems. The relationship between fatal rate and other attributes, including collision manner, weather, surface condition, and light condition, were investigated.
+Roadway traffic safety is a significant concern for transportation governing agencies as well as ordinary citizens.  To provide advice for safe driving, careful analysis of road traffic information is important to identify variables closely related to fatal accidents.  In this paper, I apply statistical analysis and data mining algorithms on the NYC Open Data portal dataset as an attempt to address these problems. The relationship between incident rate and other attributes, including collision manner, weather, surface condition, and temperature condition were investigated.
 \end{abstract}
-
 \section{Introduction}
 \label{sec:introduction}
 It is estimated that around 4,000 New Yorkers are seriously injured in New York and more than 250 people are killed in traffic accidents every year. The automobile is the leading cause of injury-related death for children under 14 years of age and the second leading cause for seniors. On average, every two hours, vehicles severely injure or kill a New Yorker. The cost of these deaths and injuries impacts the city's social and economic growth greatly.  New York City should no longer consider traffic crashes as mere "accidents," but as preventable incidents that can be addressed systematically. No degree of fatality is unavoidable or appropriate on the streets of the city. New York City's Vision Zero Action Plan\cite{VisionZero} is the foundation to reduce traffic deaths and injuries. City of New York will use every available tool to enhance the safety of our streets. With this action plan, it is making a bold new commitment to improving street safety in every neighborhood and district – with increased enforcement of dangerous moving violations such as speed and failure to yield to pedestrians, new street designs and configurations to improve safety, widespread public access and communications, and a comprehensive legislative agenda to increase penalties. 
@@ -379,7 +378,12 @@ The purpose of paper \cite{SingletonFactors} was to employ logistic regression m
 
 \section{Data Analysis and Evaluation}
 \subsection{Background}
-The following information should provide enough background for the reader unfamiliar with Logistic Regression to understand the points made in this paper. Readers already familiar with Logistic Regression can skip to the next section. It is a statistical method used to evaluate a dataset in which one or more independent variables calculate an outcome. The result is measured by a dichotomous variable in which there are only two possible outcomes. It uses a formula, like linear regression, as the representation. However, the outcome variable is categorical like two-valued outcomes like true/false, pass/fail, or yes/no. To predict value y, input values x are combined linearly using weights or coefficient values as beta. A key difference from linear regression is that the computation output value is a binary number (0 or 1) instead of a numerical value.  Below is an example logistic regression equation:
+The following information should provide enough background for the reader unfamiliar with Linear and Logistic Regression to understand the points made in this paper. Readers already familiar with them can skip to the next section. Regression analysis is the most dominant force in driving business decisions today. It has many useful characteristics; one is the easy interpretation of results. Regression concepts are widely understood, and the methodology is well developed such that a well-tuned regression model can outperform other complicated algorithms.
+
+Linear regression is a basic form of predictive analysis. Its overall idea is to analyze two things: (1) does a series of predictor variables do a good job of predicting a (dependent) outcome variable? (2) In particular, what variables are important predictors of the outcome variable, and how do they influence the outcome variable, indicated by the magnitude and sign of the beta estimates? These measures of regression are used to explain the relationship between a dependent variable and one or more independent variables.  Linear regression has a form of Y = a + bX equation where X is the explanatory variable and Y is the dependent variable.
+
+Logistic Regression is a statistical method used to evaluate a dataset in which one or more independent variables calculate an outcome. The result is measured by a dichotomous variable in which there are only two possible outcomes. It uses a formula, like linear regression, as the representation. However, the outcome variable is categorical like two-valued outcomes like true/false, pass/fail, or yes/no. To predict value y, input values x are combined linearly using weights or coefficient values as beta. A key difference from linear regression is that the computation output value is a binary number (0 or 1) instead of a numerical value.  Below is an example logistic regression equation:
+
  
 y = e\^ (b0 + b1*x) / (1 + e\^(b0 + b1*x))
 \newline 
@@ -456,7 +460,8 @@ The conclusion goes here.
 
 % use section* for acknowledgement
 \section*{Acknowledgment}
-I offer my sincerest gratitude to the Professors of CS802 and CS816 for reviewing the paper.
+I offer my sincerest gratitude to the Professors of CS802 and CS816 for reviewing the paper.
+
 
 \bibliographystyle{IEEEtran}
 {\small\bibliography{references}}
