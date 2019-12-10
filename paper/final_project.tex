@@ -378,7 +378,7 @@ The purpose of paper \cite{SingletonFactors} was to employ logistic regression m
 
 \section{Data Analysis and Evaluation}
 \subsection{Background}
-The following information should provide enough background for the reader unfamiliar with Linear and Logistic Regression to understand the points made in this paper. Readers already familiar with them can skip to the next section. Regression analysis is the most dominant force in driving business decisions today. It has many useful characteristics; one is the easy interpretation of results. Regression concepts are widely understood, and the methodology is well developed such that a well-tuned regression model can outperform other complicated algorithms.
+The following information should provide enough background for the reader unfamiliar with Linear and Logistic Regressions to understand the points made in this paper. Readers already familiar with them can skip to the next section. Regression analysis is the most dominant force in driving business decisions today. It has many useful characteristics; one is the easy interpretation of results. Regression concepts are widely understood, and the methodology is well developed such that a well-tuned regression model can outperform other complicated algorithms.
 
 Linear regression is a basic form of predictive analysis. Its overall idea is to analyze two things: (1) does a series of predictor variables do a good job of predicting a (dependent) outcome variable? (2) In particular, what variables are important predictors of the outcome variable, and how do they influence the outcome variable, indicated by the magnitude and sign of the beta estimates? These measures of regression are used to explain the relationship between a dependent variable and one or more independent variables.  Linear regression has a form of Y = a + bX equation where X is the explanatory variable and Y is the dependent variable.
 
@@ -397,7 +397,7 @@ Where y is the predicted output, b0 is the bias or intercept term, and b1 is the
 %https://www.reddit.com/r/learnpython/comments/41s9q5/classifying_latitude_and_longitude_into_suburbs/
 To visualize data, I used the Python programming language.  All necessary libraries loaded, and the script required the following libraries: 1) google.cloud to access BigQuery database, 2) pandas for data frame management, 3) Matplot for visuals, and 4) Numpy to perform scientific computing.  For making requests, Google authentication is mandatory. The python code must set the google\_application\_credentials environment variable. Replace [PATH] with the JSON file path that contains the service account key and the filename of [FILE NAME]. The attribute is for the current shell session only.
 
-A collision data are made available through the NYC Open Data initiative and can also be searched through the BigQuery Community Datasets offered by Google. For comparison with collision data, historical weather data from NOAA weather data were used.  Google BigQuery makes both NOAA weather data and NYPD traffic collisions available publicly. 
+The collision dataset is made available through the NYC Open Data initiative and can also be searched through the BigQuery Community Datasets offered by Google. For comparison with collision data, historical weather data from NOAA weather data were used.  Google BigQuery makes both NOAA weather data and NYPD traffic collisions available publicly. 
 
 The first table, is a compilation of daily collision data using years from 2012 to 2019 and limit the return query to the New York City Area. 
 \begin{figure}[bth]
@@ -450,8 +450,7 @@ Next we want to measure the effect on the various types of accidents that each p
 Based on observations, There are some interesting patterns to see. Alcohol accidents are correlated with the weekend. Illness, physical disability, and road rage seem to occur regardless of weather patterns, maybe slightly influenced by temperature. Driver distraction, passenger distraction, and inexperience are correlated with higher temperatures. The other type of road traffic accidents was drop out of analysis due to the low number of occurrences. Most categories fall off on the weekend, as proven by looking at the data. Traffic \& rush hour commuting genuinely indicates lower rates.  Precipitation in terms of 1/2 inch of rain adds 6–7 accidents while every 1/2 inch of snow depth adds 1–2 accidents. 
 
 \section{Conclusion and Future Work}
-The conclusion goes here.
-
+In summary, road traffic accident data analysis and visualization assist investigators in making proper conclusions by observing how weather conditions and would effect the road traffic frequency.  The aim was to show how to extract meaningful data from raw database and visualize it. The research may further be expanded by observing how NYC 311 complaints such as ice cream truck noise and location would effect to the road traffic collision. 
 
 
 
